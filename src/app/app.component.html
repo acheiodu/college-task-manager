@@ -1,14 +1,5 @@
 <div class="col-12">
-  <div class="title">Assignments</div>
-  <div class="card-list">
-    <div class="card" *ngFor="let assignment of subject.assignments">
-      <div class="card-header">{{assignment.type}}</div>
-      <div class="card-body">{{assignment.description}}</div>
-      <div class="card-footer">
-        <span class="card-info" (click)="openInfo(assignment)">+ Mais Informações</span>
-      </div>
-    </div>
-  </div>
+  <app-subject></app-subject>
   <div class="info" *ngIf="info">
     <div class="icon" (click)="closeInfo()">x</div>
     <div>{{info}}</div>

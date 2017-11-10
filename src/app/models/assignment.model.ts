@@ -1,8 +1,9 @@
 export class Assignments {
-    type: string;
-    requestDate: Date;
-    dueDate: Date;
-    description: string;
-    status: string;
-    grade: number;
+    type?: string;
+    subject?: string;
+    requestDate?: Date;
+    dueDate?: Date | string;
+    description?: string;
+    status?: string;
+    grade?: number;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Subject } from './models/subject.model';
+import { SubjectService } from './services/subject.service';
 
 @Component({
   selector: 'app-root',
@@ -11,36 +11,10 @@ import { Subject } from './models/subject.model';
 export class AppComponent {
 
   info: string;
-  subject: Subject = {
-    name: 'Inteligência Artificial',
-    professor: 'André',
-    assignments: [
-      {
-        type: 'Atividade',
-        requestDate: new Date(),
-        dueDate: new Date(),
-        description: 'Criar um modelo de machine learning com base em algum dataset do site UCI. Criar um modelo de machine learning com base em algum dataset do site UCI. Criar um modelo de machine learning com base em algum dataset do site UCI.',
-        status: 'pendente',
-        grade: 0
-      },
-      {
-        type: 'Prova',
-        requestDate: new Date(),
-        dueDate: new Date(),
-        description: 'K-fold Cross Validation',
-        status: 'pendente',
-        grade: 0
-      }
-    ],
-    grade: {
-      criteria: '(A1 + A2 + N1 + 7 * N2) / 100',
-      value: 0
-    }
-  };
 
-  constructor() {}
+  constructor(public subjectService: SubjectService) {}
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   openInfo(assignment): void {
     this.info = assignment.description;

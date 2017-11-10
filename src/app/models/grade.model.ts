@@ -1,4 +1,4 @@
 export class Grade {
-    criteria: string;
-    value: number;
+    criteria?: string;
+    value?: number;
 }
