@@ -1,0 +1,5 @@
+<div class="card">
+  <app-card-header [assignment]="assignment" (onClickPill)="this.onClickPill.emit($event)"></app-card-header>
+  <app-card-info [assignment]="assignment"></app-card-info>
+  <div class="description">{{assignment.description}}</div>
+</div>

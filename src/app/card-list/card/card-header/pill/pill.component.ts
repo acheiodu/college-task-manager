@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Input } from '@angular/core';
+import { OnInit } from '@angular/core';
+import { Output } from '@angular/core';
 
 @Component({
   selector: 'app-pill',
@@ -9,9 +13,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PillComponent implements OnInit {
 
   @Input() content: string;
+  @Output() onClickPill = new EventEmitter<string>();
   backgroundColor: string;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     switch(this.content) {
@@ -19,7 +24,7 @@ export class PillComponent implements OnInit {
                       break;
       case 'Atividade': this.backgroundColor = 'rgb(130, 130, 130)';
                         break;
-      case 'Prova': this.backgroundColor = 'rgb(216, 74, 74)';
+      case 'Prova': this.backgroundColor = 'rgb(80, 187, 74)';
                     break;
       default:  this.backgroundColor = 'rgb(96, 84, 197)';
                 break;

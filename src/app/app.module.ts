@@ -2,23 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { SubjectComponent } from './subject/subject.component';
-import { SubjectService } from './services/subject.service';
-import { PillComponent } from './pill/pill.component';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './card-list/card/card.component';
+import { CardHeaderComponent } from './card-list/card/card-header/card-header.component';
+import { CardListComponent } from './card-list/card-list.component';
+import { CardInfoComponent } from './card-list/card/card-info/card-info.component';
+import { PillComponent } from './card-list/card/card-header/pill/pill.component';
+import { HomeComponent } from './home/home.component';
+
+import { AssignmentService } from './services/assignment.service';
+import { FilterComponent } from './home/filter/filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubjectComponent,
+    CardComponent,
+    CardHeaderComponent,
+    CardInfoComponent,
+    CardListComponent,
+    HomeComponent,
     PillComponent,
-    CardComponent
+    FilterComponent
   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [SubjectService],
+  imports: [BrowserModule],
+  providers: [AssignmentService],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {}

@@ -1,7 +1,3 @@
 <div class="col-12">
-  <app-subject></app-subject>
-  <div class="info" *ngIf="info">
-    <div class="icon" (click)="closeInfo()">x</div>
-    <div>{{info}}</div>
-  </div>
+  <app-home [assignments]="assignments"></app-home>
 </div>

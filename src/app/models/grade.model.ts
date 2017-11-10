@@ -1,4 +1,4 @@
-export class Grade {
+export class IGrade {
     criteria?: string;
     value?: number;
 }

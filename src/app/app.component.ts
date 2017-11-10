@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { OnInit } from '@angular/core';
 
-import { SubjectService } from './services/subject.service';
+import { IAssignment } from './models/assignment.model';
+
+import { AssignmentService } from './services/assignment.service';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +13,12 @@ import { SubjectService } from './services/subject.service';
 
 export class AppComponent {
 
-  info: string;
+  assignments: IAssignment[];
+  
+  constructor(public assignmentService: AssignmentService) {}
 
-  constructor(public subjectService: SubjectService) {}
-
-  ngOnInit() { }
-
-  openInfo(assignment): void {
-    this.info = assignment.description;
-  }
-
-  closeInfo(): void {
-    this.info = null;
+  ngOnInit() {
+    this.assignments = this.assignmentService.assignments;
   }
 
 }

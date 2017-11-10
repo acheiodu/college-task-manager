@@ -1,0 +1,3 @@
+<div class="title">Próximas Atividades</div>
+<app-filter *ngFor="let filter of filters" [content]="filter" (onClickFilter)="cleanFilters($event)"></app-filter>
+<app-card-list [assignments]="filteredAssignments" (onClickPill)="filter([$event])"></app-card-list>
