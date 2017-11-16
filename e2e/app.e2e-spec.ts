@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('college App', () => {
+describe('college-task-manager App', () => {
   let page: AppPage;
 
   beforeEach(() => {

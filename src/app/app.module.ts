@@ -1,31 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
+import locale from '@angular/common/locales/pt';
 import { NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './card-list/card/card.component';
-import { CardHeaderComponent } from './card-list/card/card-header/card-header.component';
-import { CardListComponent } from './card-list/card-list.component';
-import { CardInfoComponent } from './card-list/card/card-info/card-info.component';
-import { PillComponent } from './card-list/card/card-header/pill/pill.component';
+import { CardComponent } from './shared/card/card.component';
+import { PillComponent } from './shared/pill/pill.component';
 import { HomeComponent } from './home/home.component';
 
 import { AssignmentService } from './services/assignment.service';
-import { FilterComponent } from './home/filter/filter.component';
+
+registerLocaleData(locale);
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    CardHeaderComponent,
-    CardInfoComponent,
-    CardListComponent,
     HomeComponent,
-    PillComponent,
-    FilterComponent
+    PillComponent
   ],
-  imports: [BrowserModule],
-  providers: [AssignmentService],
-  bootstrap: [AppComponent]
+  imports: [
+    BrowserModule
+  ],
+  providers: [
+    AssignmentService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 
 export class AppModule {}

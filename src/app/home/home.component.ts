@@ -2,48 +2,52 @@ import { Component } from '@angular/core';
 import { Input } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.less']
-})
+@Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.less']})
 
 export class HomeComponent implements OnInit {
 
   @Input() assignments;
-  filteredAssignments: Array<any>;
-  filters: Array<string> = [];
-  subjectTypes: Array<string> = ['PROVA', 'ATIVIDADE', 'TAREFA'];
 
-  constructor() {}
+  filteredAssignments: Array<any>;
+  filters: Array<any> = [];
 
   ngOnInit() {
     this.filteredAssignments = this.assignments;
   }
 
-  cleanFilters(content) {
-    let index = this.filters.indexOf(content);
-    this.filters.splice(index, 1);
-    this.filter(this.filters);
+  deleteFilter(selectedFilter): void {
+    if (selectedFilter === 'TODOS') {
+      this.filters = [];
+      this.filteredAssignments = this.assignments;
+    } else {
+      let index = this.filters.findIndex((filter) => {
+        return filter.value === selectedFilter
+      });
+      this.filters.splice(index, 1);
+      this.filter();
+    }
   }
 
-  filter(items: Array<string>) {
+  addFilter(selectedFilter: any): void {
+    if (!this.filters.length) {
+      this.filters.push({type: 'all', value: 'TODOS'});
+    }
+    if (!this.filters.some((filter) => filter.value === selectedFilter.value)) {
+      this.filters.push(selectedFilter);
+    }
+    this.filter();
+  }
+
+  filter(): void {
     this.filteredAssignments = this.assignments;
-    let filters = this.filters;
-    items.forEach((item) => {
-      if (!this.filters.includes(item)) {
-        filters.push(item);
-      }
-    });
-    this.filters = filters;
     this.filters.forEach((filter) => {
-      if (this.subjectTypes.includes(filter)) {
+      if (filter.type === 'assignment') {
         this.filteredAssignments = this.filteredAssignments.filter((assignment) => {
-          return assignment.type.toUpperCase() === filter;
+          return assignment.type.toUpperCase() === filter.value;
         });
-      } else {
+      } else if (filter.type === 'subject') {
         this.filteredAssignments = this.filteredAssignments.filter((assignment) => {
-          return assignment.subject.toUpperCase() === filter;
+          return assignment.subject.toUpperCase() === filter.value;
         });
       }
     });
