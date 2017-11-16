@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { Input } from '@angular/core';
 import { OnInit } from '@angular/core';
+
+import { AssignmentService } from '../services/assignment.service';
 
 @Component({selector: 'app-home', templateUrl: './home.component.html', styleUrls: ['./home.component.less']})
 
 export class HomeComponent implements OnInit {
 
-  @Input() assignments;
-
+  assignments: Array<any>;
   filteredAssignments: Array<any>;
   filters: Array<any> = [];
 
+  constructor(public assignmentService: AssignmentService) {}
+
   ngOnInit() {
-    this.filteredAssignments = this.assignments;
+    this.assignments = this.filteredAssignments = this.assignmentService.assignments;
   }
 
   deleteFilter(selectedFilter): void {
-    if (selectedFilter === 'TODOS') {
+    if (selectedFilter === 'TODOS' || this.filters.length === 2) {
       this.filters = [];
       this.filteredAssignments = this.assignments;
     } else {

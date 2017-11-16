@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAssignment } from '../models/assignment.model';
+import { IAssignment } from '../shared/models/assignment.model';
 
 @Injectable()
 export class AssignmentService {
