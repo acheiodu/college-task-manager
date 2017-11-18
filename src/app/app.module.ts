@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/pt';
 import { NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
@@ -25,7 +26,8 @@ registerLocaleData(locale);
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     AssignmentService

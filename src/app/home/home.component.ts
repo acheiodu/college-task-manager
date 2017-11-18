@@ -7,14 +7,19 @@ import { AssignmentService } from '../services/assignment.service';
 
 export class HomeComponent implements OnInit {
 
-  assignments: Array<any>;
-  filteredAssignments: Array<any>;
+  assignments: Array<any> = [];
+  filteredAssignments: Array<any> = [];
   filters: Array<any> = [];
+  teste: string = '';
 
   constructor(public assignmentService: AssignmentService) {}
 
   ngOnInit() {
-    this.assignments = this.filteredAssignments = this.assignmentService.assignments;
+    this.assignmentService.getAssignments()
+    .subscribe((data) => {
+      this.assignments = data;
+      this.filteredAssignments = data;
+    });
   }
 
   deleteFilter(selectedFilter): void {
