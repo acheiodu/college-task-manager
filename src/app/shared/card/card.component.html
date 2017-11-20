@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-header">
-    <app-pill [content]="{type: 'assignment', value: assignment.type}" (onClickPill)="this.onClickPill.emit({type: 'assignment', value: $event})"></app-pill>
-    <app-pill [content]="{type: 'subject', value: assignment.subject}" (onClickPill)="this.onClickPill.emit({type: 'subject', value: $event})"></app-pill>
+    <app-pill [content]="{key: 'assignment', value: assignment.type}" (onClickPill)="this.onClickPill.emit({key: 'assignment', value: $event})"></app-pill>
+    <app-pill [content]="{key: 'subject', value: assignment.subject}" (onClickPill)="this.onClickPill.emit({key: 'subject', value: $event})"></app-pill>
   </div>
   <div class="card-info">
-    <span><b>Situação:</b> {{ assignment.status }}</span>
+    <span><b>Situação:</b> {{ assignment.status | titleCase}}</span>
     <span><b>Data:</b> {{ assignment.dueDate | date : 'dd/MM' : '' : 'pt' }}</span>
-    <span><b>Nota:</b> {{ assignment.grade }} de {{ assignment.grade }}</span>
+    <span><b>Nota:</b> {{ assignment.grade }} de {{ assignment.totalGrade }}</span>
   </div>
   <div class="card-body">
     <div class="description">{{ assignment.description }}</div>

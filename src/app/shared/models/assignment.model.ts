@@ -6,4 +6,5 @@ export class IAssignment {
     description?: string;
     status?: string;
     grade?: number;
+    totalGrade?: string;
 }

@@ -1,6 +1,7 @@
 body {
-    font-family: 'Open Sans';
-    font-weight: normal;
-    margin: 0px;
-    padding: 20px;
+  background-color: rgb(230, 230, 230);
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0px;
 }

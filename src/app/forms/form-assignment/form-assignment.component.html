@@ -1,0 +1,6 @@
+<app-form-select [content]="{name: 'Atividade', serviceContent: 'types', service: assignmentService}" (onSelected)="selectAssignment($event)"></app-form-select>
+<app-form-select [content]="{name: 'Disciplina', serviceContent: 'subjects', service: assignmentService}" (onSelected)="selectSubject($event)"></app-form-select>
+<app-form-date-picker (onSelected)="selectDate($event)" (onSelected)="selectDate($event)"></app-form-date-picker>
+<app-form-select [content]="{name: 'Situação', serviceContent: 'status', service: assignmentService}" (onSelected)="selectStatus($event)"></app-form-select>
+<app-pill [content]="{key: 'button', value: 'SALVAR'}" (onClickPill)="saveAssignment()"></app-pill>
+<app-pill [content]="{key: 'button', value: 'CANCELAR'}" (onClickPill)="cancelAssignment()"></app-pill>

@@ -1,0 +1,28 @@
+<div class="date-picker">
+  <div class="item"><b>Date:</b> {{ selectedDate | date : 'longDate' : '' : 'pt'}}</div>
+  <div *ngIf="!isCustom && isSelected === 'none'">
+    <app-pill *ngFor="let x of options" [content]="{key: 'form', value: x}" (onClickPill)="selectOption($event)"></app-pill>
+  </div>
+  <div *ngIf="isCustom && isSelected === 'none'">
+    <div class="year">
+      <app-pill [content]="{key: 'form', value: '-'}" (onClickPill)="selectYear($event)"></app-pill>
+      <app-pill [content]="{key: 'form', value: selectedYear.toString()}" [ngClass]="{current: currentYear === selectedYear}" (onClickPill)="selectYear($event)"></app-pill>
+      <app-pill [content]="{key: 'form', value: '+'}" (onClickPill)="selectYear($event)"></app-pill>
+    </div>
+    <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
+  </div>
+  <div *ngIf="isCustom && isSelected === 'year'">
+    <app-pill *ngFor="let month of months; let i = index;" [content]="{key: 'form', value: month}" (onClickPill)="selectMonth(i)"></app-pill>
+    <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
+  </div>
+  <div *ngIf="isCustom && isSelected === 'month'">
+    <div class="grid">
+      <div class="circle" *ngFor="let day of weekDays">{{ day }}</div>
+      <div class="circle" *ngFor="let day of days" (click)="selectDay(day)">{{ day | number : '2.0-0' }}</div>
+    </div>
+    <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
+  </div>
+  <span *ngIf="isSelected === 'day'">
+    <app-pill [content]="{key: 'form', value: 'Alterar'}" (onClickPill)="cancel()"></app-pill>
+  </span>
+</div>
