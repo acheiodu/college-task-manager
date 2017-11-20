@@ -1,8 +1,8 @@
 <div class="select">
   <div class="item"><b>{{ content.name }}:</b> {{ content.selected | titleCase }}</div>
   <span *ngIf="content.isSelected">
-    <app-pill [content]="{key: 'form', value: 'Alterar'}" (onClickPill)="editItem()"></app-pill>
-    <app-pill [content]="{key: 'form', value: 'Remover'}" (onClickPill)="removeItem(content.selected)"></app-pill>
+    <app-pill [content]="{key: 'form', value: 'ALTERAR'}" (onClickPill)="editItem()"></app-pill>
+    <app-pill [content]="{key: 'form', value: 'REMOVER'}" (onClickPill)="removeItem(content.selected)"></app-pill>
   </span>
   <div *ngIf="!content.isCustom && !content.isSelected">
     <app-pill [content]="{key: 'form', value: '+'}" (onClickPill)="selectItem($event)"></app-pill>
@@ -10,7 +10,7 @@
   </div>
   <div *ngIf="content.isCustom && !content.isSelected">
     <input class="input" type="text" #contentInput>
-    <app-pill [content]="{key: 'form', value: 'Adicionar'}" (onClickPill)="addItem(contentInput.value)"></app-pill>
-    <app-pill [content]="{key: 'form', value: 'Cancelar'}" (onClickPill)="editItem()"></app-pill>
+    <app-pill [content]="{key: 'form', value: 'ADICIONAR'}" (onClickPill)="addItem(contentInput.value)"></app-pill>
+    <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="editItem()"></app-pill>
   </div>
 </div>

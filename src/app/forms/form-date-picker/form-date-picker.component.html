@@ -12,7 +12,9 @@
     <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
   </div>
   <div *ngIf="isCustom && isSelected === 'year'">
-    <app-pill *ngFor="let month of months; let i = index;" [content]="{key: 'form', value: month}" (onClickPill)="selectMonth(i)"></app-pill>
+    <div class="month">
+      <app-pill *ngFor="let month of months; let i = index;" [content]="{key: 'form', value: month}" (onClickPill)="selectMonth(i)"></app-pill>
+    </div>
     <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
   </div>
   <div *ngIf="isCustom && isSelected === 'month'">

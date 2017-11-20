@@ -47,6 +47,9 @@ export class FormDatePickerComponent {
     let daysInMonth = new Date(this.selectedYear, this.selectedMonth + 1, 0).getDate();
     let weekDay = new Date(this.selectedYear, this.selectedMonth, 1).getDay();
     let remainingWeekDays = 7 - ((daysInMonth + weekDay) % 7);
+    if (remainingWeekDays === 7) {
+      remainingWeekDays = 0;
+    }
     for(let i = 1 - weekDay; i <= daysInMonth + remainingWeekDays; i++) {
       if (i <= 0 || i > daysInMonth) {
         this.days.push(null);
