@@ -12,7 +12,7 @@ export class AssignmentService {
   subjects: Array<string> = [];
   status: Array<string> = [];
 
-  assignmentUrl: string = 'http://192.168.1.33:3000/api/assignment';
+  assignmentUrl: string = 'http://35.226.159.16:8080/assignments';
 
   constructor(private http: HttpClient) {}
 
