@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAssignments();
+    this.assignmentService.setAssignment({});
   }
 
   addFilter(selectedFilter: any): void {
@@ -41,6 +42,11 @@ export class HomeComponent implements OnInit {
       this.filters.splice(index, 1);
       this.filter();
     }
+  }
+
+  editAssignment(assignment): void {
+    this.assignmentService.setAssignment(assignment);
+    this.navigate('new-assignment');
   }
 
   filter(): void {
@@ -72,10 +78,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate([url]);
   }
 
-  saveAssignment(body: any): void {
-    this.assignmentService.saveAssignment(body)
-    .subscribe((data) => {
-      this.result = data;
+  removeAssignment(assignmentId): void {
+    this.assignmentService.removeAssignment(assignmentId)
+    .subscribe(() => {
       this.getAssignments();
     });
   }

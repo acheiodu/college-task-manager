@@ -18,6 +18,10 @@ export class FormAssignmentComponent {
 
   constructor(public assignmentService: AssignmentService, public router: Router) {}
 
+  ngOnInit() {
+    console.log(this.assignmentService.getAssignment());
+  }
+
   cancelAssignment() {
     this.router.navigate(['home']);
   }

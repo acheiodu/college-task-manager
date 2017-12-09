@@ -8,6 +8,8 @@ import { Output } from '@angular/core';
 export class CardComponent {
 
   @Input() assignment;
+  @Output() onClickEdit = new EventEmitter<string>();
   @Output() onClickPill = new EventEmitter<string>();
-
+  @Output() onClickRemove = new EventEmitter<string>();
+  
 }

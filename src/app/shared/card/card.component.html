@@ -2,6 +2,8 @@
   <div class="card-header">
     <app-pill [content]="{key: 'assignment', value: assignment.type}" (onClickPill)="this.onClickPill.emit({key: 'assignment', value: $event})"></app-pill>
     <app-pill [content]="{key: 'subject', value: assignment.subject}" (onClickPill)="this.onClickPill.emit({key: 'subject', value: $event})"></app-pill>
+    <div class="circle" title="Remove" (click)="this.onClickRemove.emit(assignment._id)"></div>
+    <div class="circle" title="Edit" (click)="this.onClickEdit.emit(assignment)"></div>
   </div>
   <div class="card-info">
     <span><b>Situação:</b> {{ assignment.status | titleCase}}</span>
