@@ -1,10 +1,26 @@
+runtime: python27
+threadsafe: true
+
+skip_files:
+- e2e/
+- node_modules/
+- src/
+- \.gitignore
+- \.editorconfig
+- \.angular-cli.json
+- app\.yaml
+- karma\.conf\.js
+- protractor\.conf\.js
+- README\.md
+- tsconfig\.json
+- tslint\.json
+
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
+
+- url: /(.+)
+  static_files: dist/\1
+  upload: dist/(.*)
+
 - url: /
   static_files: dist/index.html
   upload: dist/index.html
-- url: /(.*)
-  static_files: dist/\1
-  upload: dist/(.*)
