@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
   editAssignment(assignment): void {
     this.assignmentService.setAssignment(assignment);
-    this.navigate('new-assignment');
+    this.navigate('edit-assignment');
   }
 
   filter(): void {
@@ -61,6 +61,12 @@ export class HomeComponent implements OnInit {
           return assignment.subject.toUpperCase() === filter.value;
         });
       }
+    });
+  }
+
+  finishAssignment(assignmentId: string) {
+    this.assignmentService.finishAssignment(assignmentId).subscribe((result) => {
+      this.getAssignments();
     });
   }
 

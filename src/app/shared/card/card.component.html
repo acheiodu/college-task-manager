@@ -1,9 +1,7 @@
 <div class="card">
   <div class="card-header">
-    <app-pill [content]="{key: 'assignment', value: assignment.type}" (onClickPill)="this.onClickPill.emit({key: 'assignment', value: $event})"></app-pill>
-    <app-pill [content]="{key: 'subject', value: assignment.subject}" (onClickPill)="this.onClickPill.emit({key: 'subject', value: $event})"></app-pill>
-    <div class="circle" title="Remove" (click)="this.onClickRemove.emit(assignment._id)"></div>
-    <div class="circle" title="Edit" (click)="this.onClickEdit.emit(assignment)"></div>
+    <app-pill [content]="{key: 'assignment', value: assignment.type}" (onClickPill)="onClickPill.emit({key: 'assignment', value: $event})"></app-pill>
+    <app-pill [content]="{key: 'subject', value: assignment.subject}" (onClickPill)="onClickPill.emit({key: 'subject', value: $event})"></app-pill>
   </div>
   <div class="card-info">
     <span><b>Situação:</b> {{ assignment.status | titleCase}}</span>
@@ -13,4 +11,7 @@
   <div class="card-body">
     <div class="description">{{ assignment.description }}</div>
   </div>
+  <app-pill [content]="{key: 'button', value: 'Concluir'}" (onClickPill)="onClickFinish.emit(assignment._id)"></app-pill>
+  <app-pill [content]="{key: 'button', value: 'Editar'}" (onClickPill)="onClickEdit.emit(assignment)"></app-pill>
+  <app-pill [content]="{key: 'button', value: 'Remover'}" (onClickPill)="onClickRemove.emit(assignment._id)"></app-pill>
 </div>

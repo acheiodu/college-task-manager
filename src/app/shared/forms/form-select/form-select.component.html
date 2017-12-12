@@ -5,8 +5,12 @@
     <app-pill [content]="{key: 'form', value: 'REMOVER'}" (onClickPill)="removeItem(content.selected)"></app-pill>
   </span>
   <div *ngIf="!content.isCustom && !content.isSelected">
-    <app-pill [content]="{key: 'form', value: '+'}" (onClickPill)="selectItem($event)"></app-pill>
-    <app-pill *ngFor="let x of content.service[content.serviceContent]" [content]="{key: 'form', value: x}" (onClickPill)="selectItem($event)"></app-pill>
+    <div *ngFor="let x of content.service[content.serviceContent]">
+      <app-pill [content]="{key: 'form', value: x}" (onClickPill)="selectItem($event)"></app-pill>
+    </div>
+    <div>
+      <app-pill [content]="{key: 'form', value: 'NOVA'}" (onClickPill)="selectItem($event)"></app-pill>
+    </div>
   </div>
   <div *ngIf="content.isCustom && !content.isSelected">
     <input class="input" type="text" #contentInput>

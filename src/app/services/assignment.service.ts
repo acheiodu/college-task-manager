@@ -7,15 +7,17 @@ import { of } from 'rxjs/observable/of';
 @Injectable()
 export class AssignmentService {
 
-  assignment: IAssignment = {};
+  assignment: any = {};
   assignments: Array<IAssignment> = [];
-  types: Array<string> = [];
-  subjects: Array<string> = [];
+  type: Array<string> = [];
+  subject: Array<string> = [];
   status: Array<string> = [];
+  totalGrade: Array<string> = [];
 
-  getAssignmentsUrl: string = 'http://35.226.159.16:8080/assignments';
-  saveAssignmentUrl: string = 'http://35.226.159.16:8080/save/assignment';
-  removeAssignmentUrl: string = 'http://35.226.159.16:8080/remove/assignment';
+  getAssignmentsUrl: string = 'http://localhost:8080/assignments';
+  editAssignmentUrl: string = 'http://localhost:8080/edit/assignment';
+  removeAssignmentUrl: string = 'http://localhost:8080/remove/assignment';
+  saveAssignmentUrl: string = 'http://localhost:8080/save/assignment';
   
   constructor(private http: HttpClient) {}
 
@@ -33,12 +35,20 @@ export class AssignmentService {
     return this.http.post<any[]>(this.saveAssignmentUrl, body);
   }
 
+  updateAssignment(): Observable<any[]> {
+    return this.http.post<any[]>(this.editAssignmentUrl, {filter: {_id: this.assignment._id}, query: this.assignment});
+  }
+
   // Methods that DON'T make HTTP calls
 
   addItem(key: string, value: string): void {
     if (!this[key].includes(value)) {
       this[key].push(value.toUpperCase());
     }
+  }
+
+  finishAssignment(assignmentId: string): any {
+    return this.updateAssignment();
   }
 
   getAssignment(): IAssignment {
@@ -56,21 +66,25 @@ export class AssignmentService {
     this.assignment = assignment;
   }
 
+  setAssignmentItem(item: any): void {
+    this.assignment[item.serviceContent] = item.selected;
+  }
+
   setAssignments(assignments: Array<IAssignment>): void {
     this.assignments = assignments;
-    this.types = [];
+    this.type = [];
     assignments.filter((assignment, index, array) => {
       return array.findIndex((arrayAssignment) => arrayAssignment.type === assignment.type) === index;
     })
     .map((assignment) => {
-      return this.types.push(assignment.type);
+      return this.type.push(assignment.type);
     })
-    this.subjects = [];
+    this.subject = [];
     assignments.filter((assignment, index, array) => {
       return array.findIndex((arrayAssignment) => arrayAssignment.subject === assignment.subject) === index;
     })
     .map((assignment) => {
-      return this.subjects.push(assignment.subject);
+      return this.subject.push(assignment.subject);
     })
     this.status = [];
     assignments.filter((assignment, index, array) => {
@@ -78,6 +92,13 @@ export class AssignmentService {
     })
     .map((assignment) => {
       return this.status.push(assignment.status);
+    })
+    this.totalGrade = [];
+    assignments.filter((assignment, index, array) => {
+      return array.findIndex((arrayAssignment) => arrayAssignment.totalGrade === assignment.totalGrade) === index;
+    })
+    .map((assignment) => {
+      return this.totalGrade.push(assignment.totalGrade);
     })
   }
 

@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { Input } from '@angular/core';
-import { Output } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
-@Component({
-  selector: 'app-form-select',
-  templateUrl: './form-select.component.html',
-  styleUrls: ['./form-select.component.less']
-})
+import { AssignmentService } from '../../../services/assignment.service';
+
+@Component({selector: 'app-form-select', templateUrl: './form-select.component.html', styleUrls: ['./form-select.component.less']})
 
 export class FormSelectComponent {
 
   @Input() content: any;
-  @Output() onSelected = new EventEmitter<string>();
+
+  constructor(public assignmentService: AssignmentService) {}
 
   ngOnInit() {
-    this.content.selected = '';
-    this.content.isCustom = false;
-    this.content.isSelected = false;
+    if (this.content.selected) {
+      this.selectItem(this.content.selected);
+    } else {
+      this.content.selected = '';
+      this.content.isCustom = false;
+      this.content.isSelected = false;
+    }
   }
 
   addItem(selected: string): boolean {
@@ -25,7 +28,6 @@ export class FormSelectComponent {
     this.content.service.addItem(this.content.serviceContent, selected);
     this.content.selected = selected.toUpperCase();
     this.content.isSelected = true;
-    this.onSelected.emit(this.content.selected);
     return true;
   }
 
@@ -33,7 +35,6 @@ export class FormSelectComponent {
     this.content.selected = '';
     this.content.isSelected = false;
     this.content.isCustom = false;
-    this.onSelected.emit(null);
   }
 
   removeItem(selected: string): void {
@@ -42,13 +43,13 @@ export class FormSelectComponent {
   }
 
   selectItem(selected: string): void {
-    if (selected === '+') {
+    if (selected === 'NOVA') {
       this.content.selected = '';
       this.content.isCustom = true;
     } else {
       this.content.selected = selected;
       this.content.isSelected = true;
-      this.onSelected.emit(selected);
+      this.assignmentService.setAssignmentItem(this.content);
     }
   }
 

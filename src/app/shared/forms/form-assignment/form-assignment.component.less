@@ -1,0 +1,23 @@
+.title {
+  color: rgb(96, 84, 197);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1000px) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Input } from '@angular/core';
 import { Output } from '@angular/core';
 
 @Component({selector: 'app-form-date-picker', templateUrl: './form-date-picker.component.html', styleUrls: ['./form-date-picker.component.less']})
 
 export class FormDatePickerComponent {
 
+  @Input() date: Date;
   @Output() onSelected = new EventEmitter<Date>();
+
+  ngOnInit() {
+    if (this.date) this.selectDate(this.date);
+  }
 
   currentYear: number = new Date().getFullYear();
   selectedDate: Date;
@@ -18,7 +24,7 @@ export class FormDatePickerComponent {
   days: Array<number> = [];
   weekDays: Array<string> = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
   months: Array<string> = ['JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
-  options: Array<string> = ['HOJE','AMANHÃ','PRÓXIMA SEMANA','OUTRO DIA'];
+  options: Array<string> = ['HOJE','AMANHÃ','PRÓXIMA SEMANA','NOVA'];
 
   cancel(): void {
     this.days = [];
@@ -63,18 +69,19 @@ export class FormDatePickerComponent {
   selectOption(option: string): void {
     switch(option) {
       case 'HOJE':
-      this.selectDate(new Date());
-      break;
+        this.selectDate(new Date());
+        break;
       case 'AMANHÃ':
-      this.selectDate(new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
-      break;
+        this.selectDate(new Date(new Date().getTime() + 24 * 60 * 60 * 1000));
+        break;
       case 'PRÓXIMA SEMANA':
-      this.selectDate(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
-      break;
-      case 'OUTRO DIA':
-      this.isCustom = true;
-      break;
-      default: break;
+        this.selectDate(new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000));
+        break;
+      case 'NOVA':
+        this.isCustom = true;
+        break;
+      default:
+        break;
     }
   }
 

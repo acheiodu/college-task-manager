@@ -1,13 +1,15 @@
 <div class="date-picker">
-  <div class="item"><b>Date:</b> {{ selectedDate | date : 'longDate' : '' : 'pt'}}</div>
+  <div class="item"><b>Data:</b> {{ selectedDate | date : 'longDate' : '' : 'pt'}}</div>
   <div *ngIf="!isCustom && isSelected === 'none'">
-    <app-pill *ngFor="let x of options" [content]="{key: 'form', value: x}" (onClickPill)="selectOption($event)"></app-pill>
+    <div *ngFor="let x of options" >
+      <app-pill [content]="{key: 'form', value: x}" (onClickPill)="selectOption($event)"></app-pill>
+    </div>
   </div>
   <div *ngIf="isCustom && isSelected === 'none'">
     <div class="year">
-      <app-pill [content]="{key: 'form', value: '-'}" (onClickPill)="selectYear($event)"></app-pill>
+      <div class="circle-year" (click)="selectYear('-')">-</div>
       <app-pill [content]="{key: 'form', value: selectedYear.toString()}" [ngClass]="{current: currentYear === selectedYear}" (onClickPill)="selectYear($event)"></app-pill>
-      <app-pill [content]="{key: 'form', value: '+'}" (onClickPill)="selectYear($event)"></app-pill>
+      <div class="circle-year"  (click)="selectYear('+')">+</div>
     </div>
     <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="cancel()"></app-pill>
   </div>

@@ -27,6 +27,10 @@ export class PillComponent {
       this.styles.color = 'rgb(0, 0, 0)';
       this.styles.backgroundColor = 'rgb(230, 230, 230)';
       this.styles.margin = '0px 5px 20px 0px';
+    } else if (this.content.key === 'button') {
+      this.styles.backgroundColor = 'rgb(210, 210, 210)';
+      this.styles.color = 'rgb(0, 0, 0)';
+      this.styles.margin = '0px 5px 10px 0px';
     } else {
     this.styles.color = 'rgb(0, 0, 0)';
     this.styles.backgroundColor = 'rgb(230, 230, 230)';
