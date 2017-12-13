@@ -12,8 +12,10 @@ export class AssignmentService {
   type: Array<string> = [];
   subject: Array<string> = [];
   status: Array<string> = [];
-  totalGrade: Array<string> = [];
-
+  grade: Array<number> = [];
+  totalGrade: Array<number> = [];
+  description: Array<string> = [];
+  
   getAssignmentsUrl: string = 'http://localhost:8080/assignments';
   editAssignmentUrl: string = 'http://localhost:8080/edit/assignment';
   removeAssignmentUrl: string = 'http://localhost:8080/remove/assignment';
@@ -32,23 +34,26 @@ export class AssignmentService {
   }
 
   saveAssignment(body): Observable<any[]> {
+    console.log(body);
     return this.http.post<any[]>(this.saveAssignmentUrl, body);
   }
 
-  updateAssignment(): Observable<any[]> {
-    return this.http.post<any[]>(this.editAssignmentUrl, {filter: {_id: this.assignment._id}, query: this.assignment});
+  updateAssignment(assignment: any): Observable<any[]> {
+    return this.http.post<any[]>(this.editAssignmentUrl, {filter: {_id: assignment._id}, query: assignment});
   }
 
   // Methods that DON'T make HTTP calls
 
   addItem(key: string, value: string): void {
     if (!this[key].includes(value)) {
-      this[key].push(value.toUpperCase());
+      this[key].push(value);
     }
+    this.assignment[key] = value;
   }
 
-  finishAssignment(assignmentId: string): any {
-    return this.updateAssignment();
+  finishAssignment(assignment: any): any {
+    assignment.status = 'FINALIZADO';
+    return this.updateAssignment(assignment);
   }
 
   getAssignment(): IAssignment {
@@ -70,7 +75,7 @@ export class AssignmentService {
     this.assignment[item.serviceContent] = item.selected;
   }
 
-  setAssignments(assignments: Array<IAssignment>): void {
+  setAssignments(assignments: Array<any>): void {
     this.assignments = assignments;
     this.type = [];
     assignments.filter((assignment, index, array) => {
@@ -92,6 +97,13 @@ export class AssignmentService {
     })
     .map((assignment) => {
       return this.status.push(assignment.status);
+    })
+    this.grade = [];
+    assignments.filter((assignment, index, array) => {
+      return array.findIndex((arrayAssignment) => arrayAssignment.grade === assignment.grade) === index;
+    })
+    .map((assignment) => {
+      return this.grade.push(assignment.grade);
     })
     this.totalGrade = [];
     assignments.filter((assignment, index, array) => {

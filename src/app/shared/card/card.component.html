@@ -11,7 +11,7 @@
   <div class="card-body">
     <div class="description">{{ assignment.description }}</div>
   </div>
-  <app-pill [content]="{key: 'button', value: 'Concluir'}" (onClickPill)="onClickFinish.emit(assignment._id)"></app-pill>
+  <app-pill [content]="{key: 'button', value: 'Concluir'}" (onClickPill)="onClickFinish.emit(assignment)"></app-pill>
   <app-pill [content]="{key: 'button', value: 'Editar'}" (onClickPill)="onClickEdit.emit(assignment)"></app-pill>
   <app-pill [content]="{key: 'button', value: 'Remover'}" (onClickPill)="onClickRemove.emit(assignment._id)"></app-pill>
 </div>

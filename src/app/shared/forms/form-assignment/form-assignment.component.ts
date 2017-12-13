@@ -18,23 +18,10 @@ export class FormAssignmentComponent {
 
   ngOnInit() {
     this.content = this.assignmentService.getAssignment();
-    this.selectAssignment(this.content.type);
-    this.selectSubject(this.content.subject);
-    this.selectDate(this.content.dueDate);
-    this.selectStatus(this.content.status);
-    this.selectTotalGrade(this.content.totalGrade);
   }
 
   cancelAssignment() {
     this.router.navigate(['home']);
-  }
-
-  saveAssignment() {
-    this.content.grade = 8;
-    this.content.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
-    this.assignmentService.saveAssignment(this.content).subscribe((result) => {
-      this.router.navigate(['home']);
-    });
   }
 
   selectAssignment(type: string) {
@@ -43,6 +30,10 @@ export class FormAssignmentComponent {
 
   selectDate(date: Date) {
     this.content.dueDate = date;
+  }
+
+  selectDescription(description: Date) {
+    this.content.description = description;
   }
 
   selectGrade(grade: string) {

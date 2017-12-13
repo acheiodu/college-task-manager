@@ -13,8 +13,9 @@ export class EditAssignmentComponent {
     this.router.navigate(['home']);
   }
 
-  saveUpdate() {
-    this.assignmentService.updateAssignment().subscribe((result) => {
+  saveUpdate(assignment) {
+    this.assignmentService.updateAssignment(assignment)
+    .subscribe(() => {
       this.router.navigate(['home']);
     });
   }

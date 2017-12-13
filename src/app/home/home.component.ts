@@ -64,8 +64,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  finishAssignment(assignmentId: string) {
-    this.assignmentService.finishAssignment(assignmentId).subscribe((result) => {
+  finishAssignment(assignment: string) {
+    this.assignmentService.finishAssignment(assignment).subscribe((result) => {
       this.getAssignments();
     });
   }

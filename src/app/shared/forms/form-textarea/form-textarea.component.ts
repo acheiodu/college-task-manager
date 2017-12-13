@@ -4,9 +4,9 @@ import { Input } from '@angular/core';
 
 import { AssignmentService } from '../../../services/assignment.service';
 
-@Component({selector: 'app-form-select', templateUrl: './form-select.component.html', styleUrls: ['./form-select.component.less']})
+@Component({selector: 'app-form-textarea', templateUrl: './form-textarea.component.html', styleUrls: ['./form-textarea.component.less']})
 
-export class FormSelectComponent {
+export class FormTextareaComponent {
 
   @Input() content: any;
   assignment: any = {};
@@ -19,14 +19,12 @@ export class FormSelectComponent {
       this.selectItem(this.assignment.selected);
     } else {
       this.assignment.selected = '';
-      this.assignment.isCustom = false;
       this.assignment.isSelected = false;
     }
   }
 
   addItem(selected: string): boolean {
     if (!selected) return false;
-    selected = selected.toUpperCase();
     this.assignmentService.addItem(this.assignment.serviceContent, selected);
     this.assignment.selected = selected;
     this.assignment.isSelected = true;
@@ -34,25 +32,17 @@ export class FormSelectComponent {
   }
 
   editItem(): void {
-    this.assignment.selected = '';
     this.assignment.isSelected = false;
-    this.assignment.isCustom = false;
   }
 
   removeItem(selected: string): void {
+    this.assignment.selected = '';
     this.editItem();
-    this.assignment.service.removeItem(this.assignment.serviceContent, selected);
   }
 
   selectItem(selected: string): void {
-    if (selected === 'NOVA') {
-      this.assignment.selected = '';
-      this.assignment.isCustom = true;
-    } else {
-      this.assignment.selected = selected;
-      this.assignment.isSelected = true;
-      this.assignmentService.setAssignmentItem(this.assignment);
-    }
+    this.assignment.isSelected = true;
+    this.assignmentService.setAssignmentItem(this.assignment);
   }
 
 }

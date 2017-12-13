@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AssignmentService } from '../services/assignment.service';
 
@@ -8,10 +10,16 @@ export class AddAssignmentComponent {
 
   assignment: any = {};
 
-  constructor(public assignmentService: AssignmentService) {}
+  constructor(public assignmentService: AssignmentService, public router: Router) {}
 
   ngOnInit() {
     this.assignment = this.assignmentService.getAssignment();
+  }
+
+  saveAssignment(assignment: any) {
+    this.assignmentService.saveAssignment(this.assignment).subscribe(() => {
+      this.router.navigate(['home']);
+    });
   }
 
 }

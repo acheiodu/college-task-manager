@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/pt';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { EditAssignmentComponent } from './edit-assignment/edit-assignment.compo
 import { FormAssignmentComponent } from './shared/forms/form-assignment/form-assignment.component';
 import { FormDatePickerComponent } from './shared/forms/form-date-picker/form-date-picker.component';
 import { FormSelectComponent } from './shared/forms/form-select/form-select.component';
+import { FormTextareaComponent } from './shared/forms/form-textarea/form-textarea.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PillComponent } from './shared/pill/pill.component';
 import { HomeComponent } from './home/home.component';
@@ -32,6 +34,7 @@ registerLocaleData(locale);
     FormAssignmentComponent,
     FormDatePickerComponent,
     FormSelectComponent,
+    FormTextareaComponent,
     HomeComponent,
     PageNotFoundComponent,
     PillComponent,
@@ -40,6 +43,7 @@ registerLocaleData(locale);
   imports: [
     AppRoutingModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [
