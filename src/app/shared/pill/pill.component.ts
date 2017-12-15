@@ -31,9 +31,19 @@ export class PillComponent {
       this.styles.backgroundColor = 'rgb(210, 210, 210)';
       this.styles.color = 'rgb(0, 0, 0)';
       this.styles.margin = '0px 5px 10px 0px';
+    } else if (this.content.key === 'button-save') {
+      this.styles.backgroundColor = 'rgb(96, 84, 197)';
+      this.styles.color = 'rgb(255, 255, 255)';
+      this.styles.margin = '0px 5px 10px 0px';
+      this.styles.fontSize = '13px';
+    } else if (this.content.key === 'button-cancel') {
+      this.styles.backgroundColor = 'rgb(100, 100, 100)';
+      this.styles.color = 'rgb(255, 255, 255)';
+      this.styles.margin = '0px 5px 10px 0px';
+      this.styles.fontSize = '13px';
     } else {
     this.styles.color = 'rgb(0, 0, 0)';
-    this.styles.backgroundColor = 'rgb(230, 230, 230)';
+    this.styles.backgroundColor = 'rgb(210, 210, 210)';
     this.styles.margin = '0px 5px 10px 0px';
   }
 }

@@ -11,7 +11,8 @@ let appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'add-assignment', component: AddAssignmentComponent},
-  {path: 'edit-assignment', component: EditAssignmentComponent},
+  {path: 'edit', component: EditAssignmentComponent},
+  {path: 'edit/:assignmentId', component: EditAssignmentComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

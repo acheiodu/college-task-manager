@@ -12,12 +12,12 @@ export class AddAssignmentComponent {
 
   constructor(public assignmentService: AssignmentService, public router: Router) {}
 
-  ngOnInit() {
-    this.assignment = this.assignmentService.getAssignment();
+  cancel() {
+    this.router.navigate(['home']);
   }
 
   saveAssignment(assignment: any) {
-    this.assignmentService.saveAssignment(this.assignment).subscribe(() => {
+    this.assignmentService.saveAssignment(assignment).subscribe(() => {
       this.router.navigate(['home']);
     });
   }

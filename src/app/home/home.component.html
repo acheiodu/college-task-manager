@@ -1,5 +1,6 @@
-<app-pill *ngFor="let filter of filters" [content]="{key: 'filter', value: filter.value}" (onClickPill)="deleteFilter($event)"></app-pill>
-<div class="card-list">
-  <app-card *ngFor="let assignment of filteredAssignments" [assignment]="assignment" (onClickEdit)="editAssignment($event)" (onClickFinish)="finishAssignment($event)" (onClickPill)="addFilter($event)" (onClickRemove)="removeAssignment($event)"></app-card>
+<div class="col-12">
+  <app-pill *ngFor="let filter of filters" [content]="{key: 'filter', value: filter.value}" (onClickPill)="deleteFilter($event)"></app-pill>
+  <div class="card-list">
+    <app-card *ngFor="let assignment of filteredAssignments" [assignment]="assignment" (onClickEdit)="editAssignment($event)" (onClickFinish)="finishAssignment($event)" (onClickPill)="addFilter($event)" (onClickRemove)="removeAssignment($event)"></app-card>
+  </div>
 </div>
-<app-pill [content]="{key: 'button', value: 'ADICIONAR'}" (click)="navigate('add-assignment')"></app-pill>

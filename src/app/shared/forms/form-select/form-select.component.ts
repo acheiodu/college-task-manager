@@ -37,11 +37,12 @@ export class FormSelectComponent {
     this.assignment.selected = '';
     this.assignment.isSelected = false;
     this.assignment.isCustom = false;
+    this.assignmentService.setAssignmentItem(this.assignment);
   }
 
   removeItem(selected: string): void {
     this.editItem();
-    this.assignment.service.removeItem(this.assignment.serviceContent, selected);
+    this.assignmentService.removeItem(this.assignment.serviceContent, selected);
   }
 
   selectItem(selected: string): void {

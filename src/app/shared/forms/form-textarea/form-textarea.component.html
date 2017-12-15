@@ -1,12 +1,10 @@
-<div class="textarea">
-  <div class="item"><b>{{ assignment.name }}:</b><span *ngIf="assignment.isSelected"> {{ assignment.selected }}</span></div>
-  <span *ngIf="assignment.isSelected">
-    <app-pill [content]="{key: 'form', value: 'ALTERAR'}" (onClickPill)="editItem()"></app-pill>
-    <app-pill [content]="{key: 'form', value: 'REMOVER'}" (onClickPill)="removeItem(assignment.selected)"></app-pill>
-  </span>
-  <div *ngIf="!assignment.isSelected">
-    <textarea class="textarea" id=textarea #textarea rows="3" spellcheck="false" [(ngModel)]="assignment.selected"></textarea>
-    <app-pill [content]="{key: 'form', value: 'ADICIONAR'}" (onClickPill)="selectItem(textarea.value)"></app-pill>
-    <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="editItem()"></app-pill>
-  </div>
+<div class="item"><b>{{ assignment.name }}:</b><span *ngIf="assignment.isSelected"> {{ assignment.selected }}</span></div>
+<span *ngIf="assignment.isSelected">
+  <app-pill [content]="{key: 'form', value: 'ALTERAR'}" (onClickPill)="editItem()"></app-pill>
+  <app-pill [content]="{key: 'form', value: 'REMOVER'}" (onClickPill)="removeItem(assignment.selected)"></app-pill>
+</span>
+<div class="textarea" *ngIf="!assignment.isSelected">
+  <textarea class="textarea" id=textarea #textarea rows="3" spellcheck="false" [(ngModel)]="assignment.selected"></textarea>
+  <app-pill [content]="{key: 'form', value: 'ADICIONAR'}" (onClickPill)="selectItem(textarea.value)"></app-pill>
+  <app-pill [content]="{key: 'form', value: 'CANCELAR'}" (onClickPill)="editItem()"></app-pill>
 </div>

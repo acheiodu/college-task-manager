@@ -1,11 +1,16 @@
-<div class="form">
-	<app-form-select [content]="{name: 'Atividade', serviceContent: 'type', service: assignmentService, selected: content.type}"></app-form-select>
-	<app-form-select [content]="{name: 'Disciplina', serviceContent: 'subject', service: assignmentService, selected: content.subject}"></app-form-select>
-	<app-form-date-picker [date]="content.dueDate" (onSelected)="selectDate($event)"></app-form-date-picker>
-	<app-form-select [content]="{name: 'Situação', serviceContent: 'status', service: assignmentService, selected: content.status}"></app-form-select>
-	<app-form-select [content]="{name: 'Nota', serviceContent: 'grade', service: assignmentService, selected: content.grade}"></app-form-select>
-	<app-form-select [content]="{name: 'Peso', serviceContent: 'totalGrade', service: assignmentService, selected: content.totalGrade}"></app-form-select>
-	<app-form-textarea [content]="{name: 'Descricao', serviceContent: 'description', service: assignmentService, selected: content.description}"></app-form-textarea>
+<div class="col-12">
+	<div class="form">
+		<app-form-select [content]="{name: 'Tipo', serviceContent: 'type', selected: content.type}"></app-form-select>
+		<app-form-select [content]="{name: 'Disciplina', serviceContent: 'subject', selected: content.subject}"></app-form-select>
+		<app-form-date-picker [content]="content.dueDate" (onSelected)="selectDate($event)"></app-form-date-picker>
+		<app-form-select [content]="{name: 'Situação', serviceContent: 'status', selected: content.status}"></app-form-select>
+		<app-form-select [content]="{name: 'Nota', serviceContent: 'grade', selected: content.grade}"></app-form-select>
+		<app-form-select [content]="{name: 'Peso', serviceContent: 'totalGrade', selected: content.totalGrade}"></app-form-select>
+		<app-form-textarea [content]="{name: 'Descricao', serviceContent: 'description', selected: content.description}"></app-form-textarea>
+	</div>
+	<div class="buttons">
+		<div class="toast" *ngIf="toast.isVisible" (click)="hideToast()" title="Fechar">{{ toast.message }}</div>
+		<app-pill [content]="{key: 'button-save', value: 'SALVAR'}" (onClickPill)="save(content)"></app-pill>
+		<app-pill [content]="{key: 'button-cancel', value: 'CANCELAR'}" (onClickPill)="onClickCancel.emit()"></app-pill>
+	</div>
 </div>
-<app-pill [content]="{key: 'button', value: 'SALVAR'}" (onClickPill)="onClickSave.emit(content)"></app-pill>
-<app-pill [content]="{key: 'button', value: 'CANCELAR'}" (onClickPill)="onClickCancel.emit(content)"></app-pill>

@@ -7,11 +7,11 @@ import { Output } from '@angular/core';
 
 export class FormDatePickerComponent {
 
-  @Input() date: Date;
+  @Input() content: Date;
   @Output() onSelected = new EventEmitter<Date>();
 
   ngOnInit() {
-    if (this.date) this.selectDate(this.date);
+    if (this.content) this.selectDate(this.content);
   }
 
   currentYear: number = new Date().getFullYear();

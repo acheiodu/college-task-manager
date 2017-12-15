@@ -6,7 +6,7 @@ import { PipeTransform } from '@angular/core';
 export class TitleCasePipe implements PipeTransform {
 
   transform(value: any): string {
-    if (!isNaN(value)) return value;
+    if (!value || !isNaN(value)) return value;
     return value.split(/\s/g).map((word) => {
       if (!word || word === 'EAD') return word;
       return word[0].toUpperCase() + word.substr(1).toLowerCase();

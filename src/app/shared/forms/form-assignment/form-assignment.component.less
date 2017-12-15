@@ -1,13 +1,32 @@
-.title {
-  color: rgb(96, 84, 197);
-  font-size: 20px;
-  margin-bottom: 20px;
+app-form-select, app-form-date-picker, app-form-textarea {
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.buttons {
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  text-align: center;
+  width: 100%;
 }
 
 .form {
+  border-bottom: 1px solid rgb(200, 200, 200);
   display: grid;
-  grid-gap: 5px;
+  grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.toast {
+  background-color: rgb(228, 179, 179);
+  border: 1px solid rgb(182, 60, 60);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 @media (max-width: 1000px) {

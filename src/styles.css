@@ -1,7 +1,24 @@
 body {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(255, 255, 255);
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   margin: 0px;
 }
+
+.col-12 {
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 20px;
+  padding-top: 60px;
+}
+
+.title {
+  border-bottom: 1px solid rgb(200, 200, 200);
+  color: rgb(96, 84, 197);
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}  

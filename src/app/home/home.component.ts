@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
   editAssignment(assignment): void {
     this.assignmentService.setAssignment(assignment);
-    this.navigate('edit-assignment');
+    this.navigate(`edit/${assignment._id}`);
   }
 
   filter(): void {

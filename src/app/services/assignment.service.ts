@@ -34,7 +34,6 @@ export class AssignmentService {
   }
 
   saveAssignment(body): Observable<any[]> {
-    console.log(body);
     return this.http.post<any[]>(this.saveAssignmentUrl, body);
   }
 
@@ -49,6 +48,10 @@ export class AssignmentService {
       this[key].push(value);
     }
     this.assignment[key] = value;
+  }
+
+  cleanAssignment(): void {
+    this.assignment = {};
   }
 
   finishAssignment(assignment: any): any {
