@@ -16,10 +16,10 @@ export class AssignmentService {
   totalGrade: Array<number> = [];
   description: Array<string> = [];
   
-  getAssignmentsUrl: string = 'http://35.226.159.16:8080/assignments';
-  editAssignmentUrl: string = 'http://35.226.159.16:8080/edit/assignment';
-  removeAssignmentUrl: string = 'http://35.226.159.16:8080/remove/assignment';
-  saveAssignmentUrl: string = 'http://35.226.159.16:8080/save/assignment';
+  getAssignmentsUrl: string = 'http://localhost:8080/assignments';
+  editAssignmentUrl: string = 'http://localhost:8080/edit/assignment';
+  removeAssignmentUrl: string = 'http://localhost:8080/remove/assignment';
+  saveAssignmentUrl: string = 'http://localhost:8080/save/assignment';
   
   constructor(private http: HttpClient) {}
 

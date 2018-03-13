@@ -7,6 +7,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { AddAssignmentComponent } from './add-assignment/add-assignment.component';
 import { AppComponent } from './app.component';
+import { AuthGuard } from './services/auth-guard.service';
 import { CardComponent } from './shared/card/card.component';
 import { EditAssignmentComponent } from './edit-assignment/edit-assignment.component';
 import { FormAssignmentComponent } from './shared/forms/form-assignment/form-assignment.component';
@@ -22,6 +23,7 @@ import { TitleCasePipe } from './shared/pipes/title-case.pipe';
 import { AssignmentService } from './services/assignment.service';
 
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 registerLocaleData(locale);
 
@@ -38,7 +40,8 @@ registerLocaleData(locale);
     HomeComponent,
     PageNotFoundComponent,
     PillComponent,
-    TitleCasePipe
+    TitleCasePipe,
+    LoginComponent
   ],
   imports: [
     AppRoutingModule,
@@ -47,7 +50,8 @@ registerLocaleData(locale);
     HttpClientModule
   ],
   providers: [
-    AssignmentService
+    AssignmentService,
+    AuthGuard
   ],
   bootstrap: [
     AppComponent

@@ -1,8 +1,12 @@
 <nav class="nav-bar">
   <div class="nav-items">
-    <a routerLink="/home" routerLinkActive="active">Home</a>
-    <a routerLink="/add-assignment" routerLinkActive="active">Criar</a>
-    <a routerLink="/edit" routerLinkActive="active">Editar</a>
+    <a routerLink="/">Home</a>
+    <a routerLink="/add-assignment">Criar</a>
+    <a routerLink="/edit">Editar</a>
+    <a class="right" routerLink="/login">Login</a>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="background">
+  <router-outlet></router-outlet>
+</div>
+<div class="footer">College Task Manager © 2018</div>
