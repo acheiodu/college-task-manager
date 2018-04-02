@@ -10,7 +10,7 @@ export class CardComponent {
   @Input() assignment;
   @Output() onClickEdit = new EventEmitter<string>();
   @Output() onClickFinish = new EventEmitter<string>();
-  @Output() onClickPill = new EventEmitter<string>();
+  @Output() onClickPill = new EventEmitter<any>();
   @Output() onClickRemove = new EventEmitter<string>();
 
 }

@@ -1,28 +1,45 @@
 .button-login {
-	border: none;
+  background-color: rgb(130, 130, 130);
+  border: none;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
 	cursor: pointer;
-	display: block;
-	margin: auto;
+  display: block;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  margin: auto;
+  outline: none;
 	padding: 5px 10px;
-	text-align: center;
+}
+
+.col-12 {
+  display: grid;
+  align-content: center;
+  min-height: 100vh;
 }
 
 .input {
-	border: none;
-	border-bottom: 1px solid rgb(150, 150, 150);
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
 	outline: none;
-	padding: 5px 0px;
-	width: 200px;
-	&:focus {
-		border-bottom: 1px solid rgb(96, 84, 197);
-	}
+	padding: 5px;
+	width: 100%;
 }
 
-.item {
+.login-item {
 	margin-bottom: 20px;
 }
 
-.login {
-	margin: auto;
-	width: 200px;
+.login-label {
+  margin-bottom: 5px;
+}
+
+.login-box {
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 20px;
+	width: 300px;
 }

@@ -25,13 +25,13 @@ export class EditAssignmentComponent {
   }
 
   cancel() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   saveUpdate(assignment) {
     this.assignmentService.updateAssignment(assignment)
     .subscribe(() => {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     });
   }
 

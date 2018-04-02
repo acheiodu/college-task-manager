@@ -1,4 +1,4 @@
 <div class="col-12" *ngIf="!assignmentId">
-	<div class="no-assignment">Nenhuma atividade selecionada. Selecione "Editar" em alguma atividade em <a routerLink="/home">Home</a>.</div>
+	<div class="no-assignment">Nenhuma atividade selecionada. Selecione "Editar" em alguma atividade em <a routerLink="/">Home</a>.</div>
 </div>
 <app-form-assignment *ngIf="assignmentId" (onClickCancel)="cancel()" (onClickSave)="saveUpdate($event)"></app-form-assignment>

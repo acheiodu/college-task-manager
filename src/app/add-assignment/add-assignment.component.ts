@@ -13,12 +13,12 @@ export class AddAssignmentComponent {
   constructor(public assignmentService: AssignmentService, public router: Router) {}
 
   cancel() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   saveAssignment(assignment: any) {
     this.assignmentService.saveAssignment(assignment).subscribe(() => {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     });
   }
 

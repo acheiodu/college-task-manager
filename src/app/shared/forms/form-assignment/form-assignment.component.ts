@@ -31,7 +31,7 @@ export class FormAssignmentComponent {
   }
 
   cancelAssignment() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   hideToast() {

@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 let appRoutes: Routes = [
-  {path: '', pathMatch: 'full', component: HomeComponent},
+  {path: '', pathMatch: 'full', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'add-assignment', component: AddAssignmentComponent},
   {path: 'edit', component: EditAssignmentComponent, canActivate: [AuthGuard]},
   {path: 'edit/:assignmentId', component: EditAssignmentComponent},

@@ -3,10 +3,10 @@
     <a routerLink="/">Home</a>
     <a routerLink="/add-assignment">Criar</a>
     <a routerLink="/edit">Editar</a>
-    <a class="right" routerLink="/login">Login</a>
+    <a class="right" *ngIf="!authService.isAuthenticated" routerLink="/login">Login</a>
+    <a class="right" *ngIf="authService.isAuthenticated" (click)="authService.logout()">Logout</a>
   </div>
 </nav>
 <div class="background">
   <router-outlet></router-outlet>
 </div>
-<div class="footer">College Task Manager © 2018</div>

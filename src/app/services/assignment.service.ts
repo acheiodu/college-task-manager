@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { IAssignment } from '../shared/models/assignment.model';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
+
+import { IAssignment } from '../shared/models/assignment.model';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AssignmentService {
@@ -15,12 +18,12 @@ export class AssignmentService {
   grade: Array<number> = [];
   totalGrade: Array<number> = [];
   description: Array<string> = [];
-  
-  getAssignmentsUrl: string = 'http://35.226.159.16:8080/assignments';
-  editAssignmentUrl: string = 'http://35.226.159.16:8080/edit/assignment';
-  removeAssignmentUrl: string = 'http://35.226.159.16:8080/remove/assignment';
-  saveAssignmentUrl: string = 'http://35.226.159.16:8080/save/assignment';
-  
+
+  getAssignmentsUrl: string = environment.path + '/assignment/find';
+  editAssignmentUrl: string = environment.path + '/assignment/edit';
+  removeAssignmentUrl: string = environment.path + '/assignment/remove';
+  saveAssignmentUrl: string = environment.path + '/assignment/save';
+
   constructor(private http: HttpClient) {}
 
   // Methods that make HTTP calls

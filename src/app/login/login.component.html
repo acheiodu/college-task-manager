@@ -1,11 +1,13 @@
 <div class="col-12">
-  <div class="login">
-    <div class="item">
-      <input class="input" placeholder="username">
+  <form class="login-box">
+    <div class="login-item">
+      <div class="login-label">email</div>
+      <input [(ngModel)]="loginData.email" name="email" class="input" type="email">
     </div>
-    <div class="item">
-      <input class="input" type="password" placeholder="password">
+    <div class="login-item">
+      <div class="login-label">senha</div>
+      <input [(ngModel)]="loginData.password" name="password" class="input" type="password">
     </div>
-    <button class="button-login">Login</button>
-  </div>
-</div>
+    <button class="button-login" (click)="loginUser()">entrar</button>
+  </form> <!-- login -->
+</div> <!-- col-12 -->

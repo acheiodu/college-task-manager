@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   teste: string = '';
   result: any = {};
 
-  constructor(public assignmentService: AssignmentService, public router: Router) {}
+  constructor(private assignmentService: AssignmentService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAssignments();
