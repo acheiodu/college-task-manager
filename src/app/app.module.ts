@@ -8,6 +8,7 @@ import locale from '@angular/common/locales/pt';
 
 import { TitleCasePipe } from './shared/pipes/title-case.pipe';
 
+import { AlertService } from './services/alert.service';
 import { AssignmentService } from './services/assignment.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
@@ -25,6 +26,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PillComponent } from './shared/pill/pill.component';
+import { ToastComponent } from './shared/toast/toast.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -42,10 +44,11 @@ registerLocaleData(locale);
     FormSelectComponent,
     FormTextareaComponent,
     HomeComponent,
+    LoginComponent,
     PageNotFoundComponent,
     PillComponent,
     TitleCasePipe,
-    LoginComponent
+    ToastComponent
   ],
   imports: [
     AppRoutingModule,
@@ -54,6 +57,7 @@ registerLocaleData(locale);
     HttpClientModule
   ],
   providers: [
+    AlertService,
     AssignmentService,
     AuthGuard,
     AuthService,
