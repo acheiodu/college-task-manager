@@ -1,3 +1,6 @@
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -54,7 +57,8 @@ registerLocaleData(locale);
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule
+		HttpClientModule,
+		ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [
     AlertService,
